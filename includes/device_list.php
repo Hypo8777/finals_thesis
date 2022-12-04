@@ -48,7 +48,10 @@
     <div class="search_list">
         <label for="">Search</label>
         <input type="text" name="" id="search_input" placeholder="Device, Location etc">
-        <button id="search_device">Search</button>
+        <button id="search_device">
+            <i class="ri-search-line"></i>
+            <span>Search</span>
+        </button>
     </div>
     <div class="list_table">
         <caption>List of Devices</caption>

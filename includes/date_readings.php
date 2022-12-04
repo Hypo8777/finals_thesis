@@ -125,7 +125,10 @@
                 </select>
             </span>
             <span class="action_btn">
-                <button id="load_date_readings">Load by Date</button>
+                <button id="load_date_readings">
+                    <i class="ri-survey-fill"></i>
+                    <span>Load by Date</span>
+                </button>
             </span>
         </div>
         <div>
@@ -138,7 +141,10 @@
                 <input type="time" name="" id="load_time_to">
             </span>
             <span class="action_btn">
-                <button id="load_time_readings">Load by Time</button>
+                <button id="load_time_readings">
+                    <i class="ri-time-fill"></i>
+                    <span>Load by Time</span>
+                </button>
             </span>
         </div>
         <div>

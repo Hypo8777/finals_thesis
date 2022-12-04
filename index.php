@@ -63,7 +63,7 @@
             </li>
         </ul>
         <div class="main">
-            <a href="#" rel="noopener noreferrer">
+            <a href="https://github.com/Hypo8777/finals_thesis" target="_blank" rel="noopener noreferrer">
                 <i class="ri-github-fill"></i>
                 <span>GitHub</span>
             </a>

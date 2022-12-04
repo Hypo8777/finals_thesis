@@ -19,6 +19,10 @@
         /* background-color: var(--accent); */
         color: var(--textCol);
         text-shadow: 1px 1px 2px var(--shadow);
+        display: flex;
+        justify-content: stretch;
+        align-items: baseline;
+        gap: .5em;
     }
 
     .indicators details .normal {
@@ -54,15 +58,15 @@
 <section class="indicators">
     <h3>Indicator Description</h3>
     <details open>
-        <summary class="normal">Water Level 1</summary>
+        <summary class="normal"><i id="level1" class="ri-drop-fill"></i> <span>Water Level 1</span></summary>
         <p>Water Level is normal.</p>
     </details open>
     <details open>
-        <summary class="mid">Water Level 2</summary>
+        <summary class="mid"><i id="level2" class="ri-drop-fill"></i> <span>Water Level 2</span></summary>
         <p> Water Level is fluctiating and has a posibility of increasing to level 3</p>
     </details open>
     <details open>
-        <summary class="danger">Water Level 3</summary>
+        <summary class="danger"><i id="level3" class="ri-drop-fill"></i> <span>Water Level 3</span></summary>
         <p>Water Level is over the set limit and alarms(LEDs & Buzzer) are initiated</p>
     </details open>
 </section>

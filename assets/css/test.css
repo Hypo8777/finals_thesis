@@ -149,6 +149,14 @@ a {
     letter-spacing : 1.3px;
 }
 
+button {
+    display        : flex;
+    flex-direction : row;
+    gap            : .5em;
+    justify-content: center;
+    align-items    : center;
+}
+
 a:hover {
     background-color: var(--main);
     color           : var(--textCol);
