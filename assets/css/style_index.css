@@ -1,0 +1,274 @@
+* {
+    margin         : 0;
+    padding        : 0;
+    box-sizing     : content-box;
+    /* transition  : .3s ease; */
+    font-family    : "Segoe UI Emoji", sans-serif;
+    text-decoration: none;
+    border         : none;
+    outline        : none;
+}
+
+header {
+    display         : flex;
+    flex-direction  : column;
+    justify-content : center;
+    align-items     : stretch;
+    gap             : 1rem;
+    background-color: royalblue;
+    position        : relative;
+}
+
+
+header .header-title {
+    padding        : .5em;
+    display        : flex;
+    justify-content: center;
+    align-items    : center;
+    gap            : 1rem;
+    color          : #fffe;
+}
+
+header .header-title img {
+    height          : 50px;
+    background-color: #fff;
+    border-radius   : 5px;
+}
+
+.nav {
+    padding         : .5em;
+    display         : flex;
+    justify-content : center;
+    align-items     : center;
+    gap             : .5em;
+    background-color: cornflowerblue;
+    position        : sticky;
+    top             : 0;
+    left            : 0;
+    z-index         : 1;
+}
+
+.nav a {
+    background-color: royalblue;
+    font-weight     : bold;
+    color           : #ffffef;
+    letter-spacing  : 1.3px;
+    text-transform  : uppercase;
+    text-shadow     : 1px 1px black;
+    border          : none;
+    padding         : .5em;
+    border-radius   : 5px;
+    cursor          : pointer;
+}
+
+
+.nav a:hover {
+    background-color: #fffe;
+    color           : royalblue;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.container {
+    display        : flex;
+    justify-content: center;
+    align-items    : center;
+    padding        : 1em;
+}
+
+.container>section {
+    display        : flex;
+    flex-direction : column;
+    justify-content: flex-start;
+    align-items    : flex-start;
+    gap            : .5em;
+}
+
+.container>section div {
+    width: 90vw;
+}
+
+.container>section div canvas {
+    width        : 60vw;
+    padding      : .5em;
+    border-radius: .5em;
+    box-shadow   : 0 0 5px royalblue;
+}
+
+.container>section h1 {
+    color: royalblue;
+}
+
+.container>section label {
+    color      : royalblue;
+    font-weight: bold;
+}
+
+
+.datereadings_section_input {
+    /* background-color: crimson; */
+    display        : flex;
+    flex-direction : column;
+    justify-content: stretch;
+    align-items    : stretch;
+    flex-wrap      : wrap;
+    gap            : .5em;
+}
+
+
+.datereadings_section_input>div {
+    display        : flex;
+    flex-direction : row;
+    flex-wrap      : wrap;
+    justify-content: flex-start;
+    align-items    : flex-start;
+    gap            : .5em;
+}
+
+.datereadings_section_input>div select,
+.datereadings_section_input>div input {
+    width           : fit-content;
+    background-color: cornflowerblue;
+    padding         : .5em;
+    border-radius   : .5em;
+    color           : white;
+    letter-spacing  : 1px;
+    text-shadow     : 3px 3px 2px royalblue;
+}
+
+.datereadings_section_input>div input:read-only {
+    width           : 100%;
+    background-color: transparent;
+    border-bottom   : 2px solid royalblue;
+    text-shadow     : none;
+    border-radius   : 0;
+    padding         : 0;
+    color           : royalblue;
+}
+
+.datereadings_section_input>div button {
+    background-color: cornflowerblue;
+    padding         : .5em;
+    border-radius   : .5em;
+    cursor          : pointer;
+    color           : white;
+}
+
+
+.datereadings_section_input>div button:hover {
+    box-shadow      : 0 0 5px 1px cornflowerblue;
+    background-color: cornflowerblue;
+    color           : white;
+    text-shadow     : 3px 3px 2px royalblue;
+}
+
+
+.datereadings_section_input>div button:active {
+    box-shadow: 0 0 3px 1px royalblue inset;
+}
+
+.livereadings_section_input {
+    display        : flex;
+    flex-direction : column;
+    flex-wrap      : wrap;
+    justify-content: stretch;
+    align-items    : stretch;
+    gap            : .5em;
+}
+
+.livereadings_section_input select {
+    background-color: cornflowerblue;
+    padding         : .5em;
+    border-radius   : .5em;
+    color           : white;
+    width           : fit-content;
+}
+
+.livereadings_section_input input {
+    border-bottom: 2px solid cornflowerblue;
+    padding      : .5em;
+    color        : royalblue;
+    width        : 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+.devices_readings .search_list {
+    display        : flex;
+    flex-direction : row;
+    flex-wrap      : wrap;
+    justify-content: space-between;
+    align-items    : center;
+    width          : 100%;
+    gap            : .5em;
+}
+
+.devices_readings .search_list input {
+    flex         : 1;
+    border-bottom: 2px solid cornflowerblue;
+    padding      : .5em;
+}
+
+
+.devices_readings .search_list button {
+    padding         : .5em;
+    color           : white;
+    background-color: cornflowerblue;
+    border-radius   : .5em;
+    cursor          : pointer;
+}
+
+.list_table {
+    height         : 60vh;
+    width          : 90vw;
+    overflow-y     : scroll;
+    padding-right  : .5em;
+    display        : flex;
+    flex-direction : column;
+    justify-content: stretch;
+    align-items    : stretch;
+}
+
+
+.list_table table {
+    border-collapse: collapse;
+    border         : 2px solid royalblue;
+}
+
+
+.list_table table thead {
+    background-color: cornflowerblue;
+    color           : white;
+    position        : static;
+    top             : 0;
+    left            : 0;
+    width           : 100%;
+    z-index         : 1;
+}
+
+.list_table table tr th,
+.list_table table tr td {
+    border    : 2px solid cornflowerblue;
+    padding   : .5em;
+    text-align: center;
+}
+
+
+.list_table table tr th {
+    letter-spacing: 1.2px;
+    text-shadow   : 2px 2px 1px royalblue;
+}
+
+.list_table table tr td {
+    color: royalblue;
+}

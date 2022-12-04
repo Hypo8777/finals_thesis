@@ -1,0 +1,279 @@
+* {
+    /* outline    : 1px red dashed; */
+    font-family       : 'Poppins', 'Segoe UI EMOJI', 'Segoe UI', sans-serif;
+    margin            : 0;
+    padding           : 0;
+    border            : none;
+    list-style        : none;
+    text-decoration   : none;
+    /* transition     : .3s ease; */
+}
+
+:root {
+    --main   : cornflowerblue;
+    --accent : royalblue;
+    --shadow : royalblue;
+    --textCol: #fffe;
+}
+
+button,
+select {
+    cursor : pointer;
+    padding: .5em;
+}
+
+
+table {
+    border         : 2px solid var(--accent);
+    border-collapse: collapse;
+    width          : 100%;
+    font-size      : .8em;
+}
+
+table thead {
+    position: sticky;
+    top     : 0;
+    left    : 0;
+    z-index : 1;
+    width   : 100%;
+}
+
+table tr th {
+    background-color: var(--accent);
+    color           : var(--textCol);
+    padding         : .3em;
+}
+
+table tr th,
+table tr td {
+    border    : 1px solid var(--main);
+    text-align: center;
+}
+
+table tr td {
+    padding: .5em;
+}
+
+
+div:has(table)::-webkit-scrollbar {
+    background-color: var(--accent);
+    width           : 15px;
+    border-radius   : .5em;
+}
+
+div:has(table)::-webkit-scrollbar-thumb {
+    background-color: var(--main);
+    border-radius   : .5em;
+}
+
+/* 
+
+header {
+    display         : flex;
+    flex-direction  : column;
+    justify-content : stretch;
+    align-items     : center;
+    gap             : .5em;
+    padding         : .5em;
+    background-color: var(--accent);
+}
+
+header img {
+    height: 90px;
+}
+
+
+header .title {
+    color          : var(--textCol);
+    display        : flex;
+    flex-direction : row;
+    justify-content: center;
+    align-items    : center;
+    gap            : .5em;
+}
+
+
+header .title h1 {
+    text-shadow: 3px 3px 3px var(--main);
+}
+
+header .nav {
+    display        : flex;
+    justify-content: center;
+    align-items    : center;
+    gap            : .5em;
+    flex-wrap      : wrap;
+}
+
+header .nav button {
+    padding         : .5em;
+    border-radius   : .5em;
+    background-color: var(--main);
+    color           : var(--textCol);
+    text-shadow     : 1px 1px 3px var(--accent);
+    font-weight     : bold;
+    font-size       : 1em;
+    letter-spacing  : 1.5px;
+} */
+
+
+
+/* ###################################################################### */
+header {
+    display        : flex;
+    justify-content: space-between;
+    align-items    : center;
+    padding        : 1em;
+    position       : relative;
+}
+
+.navbar {
+    display        : flex;
+    justify-content: center;
+    align-items    : center;
+    gap            : 1em;
+    width          : 100%;
+    padding        : 1em;
+}
+
+a {
+    display        : flex;
+    justify-content: stretch;
+    align-items    : center;
+    gap            : .5em;
+    padding        : 5px;
+    border-radius  : .5em;
+    color          : var(--accent);
+    font-weight    : bold;
+    font-size      : 1rem;
+    letter-spacing : 1.3px;
+}
+
+a:hover {
+    background-color: var(--main);
+    color           : var(--textCol);
+}
+
+.main {
+    display        : flex;
+    justify-content: stretch;
+    align-items    : center;
+    gap            : .5em;
+}
+
+#menu-icon {
+    font-size     : 1.1rem;
+    font-weight   : bold;
+    /* transform  : rotate(90deg); */
+    display       : none;
+    cursor        : pointer;
+    z-index       : 1001;
+    transition    : all .3s ease;
+}
+
+#menu-icon:active {
+    transform : rotate(90deg);
+    transition: all .3s ease;
+}
+
+/* ###################################################################### */
+
+.content>section {
+    padding: 1em;
+}
+
+.content>section>div:has(canvas, table) {
+    width    : 1000px;
+    /* height: 100vh; */
+}
+
+/* 
+@media (min-width:200px) and (max-width:768px) {
+    header .title h1 {
+        font-size: .8em;
+    }
+
+    header .title img {
+        display: none;
+        opacity: 0;
+    }
+
+    header .nav button {
+        font-size: .6em;
+    }
+
+} */
+
+@media (max-width: 1280px) and (max-width: 1380px) {
+    header {
+        padding: .5em;
+    }
+
+    .navbar {
+        padding: .5em;
+    }
+
+    .content>section>div:has(canvas, table) {
+        width    : 90vw;
+        /* height: 100vh; */
+    }
+
+    table tr th,
+    table tr td {
+        padding: 3px;
+    }
+}
+
+@media (max-width: 768px) and (max-width: 1068px) {
+
+    table tr th,
+    table tr td {
+        padding: 3px;
+    }
+
+    .content>section>div:has(canvas, table) {
+        width    : 90vw;
+        /* height: 100vh; */
+    }
+
+    #menu-icon {
+        display   : block;
+        cursor    : pointer;
+        transition: all .3s ease;
+    }
+
+    .navbar {
+        position        : absolute;
+        top             : 100%;
+        right           : 2%;
+        width           : 0;
+        opacity         : 0;
+        height          : fit-content;
+        display         : flex;
+        flex-direction  : column;
+        justify-content : flex-start;
+        align-items     : stretch;
+        gap             : 0;
+        background-color: cornflowerblue;
+        padding         : 0;
+        overflow        : hidden;
+        border-radius   : .5em;
+        z-index         : 100;
+        transition      : all .3s ease;
+    }
+
+    .navbar.open {
+        width   : fit-content;
+        opacity : 1;
+        /* right: 2%; */
+    }
+
+    .navbar a {
+        padding: .5em;
+        color  : white;
+    }
+
+    .navbar a:hover {
+        color: gold;
+    }
+}
