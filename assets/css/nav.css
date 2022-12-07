@@ -1,0 +1,170 @@
+nav {
+    display        : flex;
+    flex-direction : row;
+    justify-content: space-between;
+    align-items    : center;
+    padding        : 1.5em;
+    position       : relative;
+    box-shadow     : 0 0 5px 0 royalblue;
+}
+
+nav a {
+    display        : flex;
+    flex-direction : row;
+    gap            : .5em;
+    justify-content: center;
+    align-items    : center;
+    color          : royalblue;
+    padding        : .5em;
+    border-radius  : .5em;
+    font-size      : 1.1rem;
+}
+
+nav a:hover {
+    background-color: cornflowerblue;
+    color           : white;
+}
+
+nav a.active {
+    background-color: cornflowerblue;
+    color           : white;
+}
+
+
+nav .navbar {
+    display        : flex;
+    flex-direction : row;
+    justify-content: stretch;
+    align-items    : stretch;
+    gap            : 10px;
+}
+
+nav .main {
+    display        : flex;
+    flex-direction : row;
+    justify-content: stretch;
+    align-items    : center;
+    gap            : 10px;
+}
+
+nav .main #menu-icon {
+    display   : none;
+    cursor    : pointer;
+    /* rotate : 90deg; */
+}
+
+
+@media only screen and (max-width: 600px) {
+    nav .main #menu-icon {
+        display: block;
+    }
+
+    nav .navbar {
+        overflow        : hidden;
+        border-radius   : .5em;
+        background-color: royalblue;
+        position        : absolute;
+        top             : 115%;
+        right           : 100%;
+        display         : flex;
+        flex-direction  : column;
+        justify-content : stretch;
+        align-items     : stretch;
+        padding         : 10px;
+        gap             : 0;
+        width           : fit-content;
+        height          : fit-content;
+        opacity         : 0;
+    }
+
+    nav .navbar a {
+        color          : #fffe;
+        padding        : .5em;
+        width          : 100%;
+        display        : flex;
+        justify-content: flex-start;
+    }
+
+    nav .navbar.open {
+        right  : 2%;
+        opacity: 1;
+    }
+}
+
+
+@media only screen and (max-width: 768px) {
+    nav .main #menu-icon {
+        display: block;
+    }
+
+    nav .navbar {
+        overflow              : hidden;
+        border-radius         : .5em;
+        /* background-color   : black; */
+        background-color      : royalblue;
+        position              : absolute;
+        top                   : 115%;
+        right                 : 100%;
+        display               : flex;
+        flex-direction        : column;
+        justify-content       : stretch;
+        align-items           : stretch;
+        padding               : 10px;
+        gap                   : 0;
+        width                 : fit-content;
+        height                : fit-content;
+        opacity               : 0;
+    }
+
+    nav .navbar a {
+        color          : #fffe;
+        padding        : .5em;
+        width          : 100%;
+        display        : flex;
+        justify-content: flex-start;
+    }
+
+    nav .navbar.open {
+        right  : 2%;
+        opacity: 1;
+    }
+}
+
+
+@media only screen and (max-width: 896px) {
+    nav .main #menu-icon {
+        display: block;
+    }
+
+    nav .navbar {
+        overflow              : hidden;
+        border-radius         : .5em;
+        /* background-color   : black; */
+        background-color      : royalblue;
+        position              : absolute;
+        top                   : 115%;
+        right                 : 100%;
+        display               : flex;
+        flex-direction        : column;
+        justify-content       : stretch;
+        align-items           : stretch;
+        padding               : 10px;
+        gap                   : 0;
+        width                 : fit-content;
+        height                : fit-content;
+        opacity               : 0;
+    }
+
+    nav .navbar a {
+        color          : #fffe;
+        padding        : .5em;
+        width          : 100%;
+        display        : flex;
+        justify-content: flex-start;
+    }
+
+    nav .navbar.open {
+        right  : 2%;
+        opacity: 1;
+    }
+}

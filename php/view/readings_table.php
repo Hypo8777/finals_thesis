@@ -60,7 +60,7 @@ class readings extends DBConn
     public function getLiveReadings($date, $device)
     {
         $conn = parent::set_connection();
-        $query_live_readings = "SELECT * FROM readings_live_v WHERE device = '$device' AND date_entry = '$date' ORDER BY time_entry DESC LIMIT 20";
+        $query_live_readings = "SELECT * FROM readings_live_v WHERE device = '$device' AND date_entry = '$date' AND is_active = '1' ORDER BY time_entry DESC LIMIT 20";
         $_live_readings = $conn->query($query_live_readings);
         if ($_live_readings->rowCount() !== 0) {
             foreach ($_live_readings->fetchAll() as $rows) {
@@ -75,7 +75,7 @@ class readings extends DBConn
         } else {
             ?>
             <tr>
-                <td colspan="3" style="text-align: center;">No Records found for this device today, check if the device is functioning</td>
+                <td colspan="3" style="text-align: center;">No Records found for this device today, check if the device is functioning (Online or Offline)</td>
             </tr>
 <?php
         }

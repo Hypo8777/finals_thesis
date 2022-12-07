@@ -10,15 +10,14 @@
     }
 
     .indicators h3 {
-        color: var(--accent);
+        color: royalblue;
     }
 
     .indicators details summary {
         cursor: pointer;
         padding: .5em;
         /* background-color: var(--accent); */
-        color: var(--textCol);
-        text-shadow: 1px 1px 2px var(--shadow);
+        color: #fffe;
         display: flex;
         justify-content: stretch;
         align-items: baseline;
@@ -56,7 +55,7 @@
     }
 </style>
 <section class="indicators">
-    <h3>Indicator Description</h3>
+    <h3>Water Levels</h3>
     <details open>
         <summary class="normal"><i id="level1" class="ri-drop-fill"></i> <span>Water Level 1</span></summary>
         <p>Water Level is normal.</p>

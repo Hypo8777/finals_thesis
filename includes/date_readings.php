@@ -24,7 +24,7 @@
         align-items: flex-end;
         flex-direction: row;
         gap: .5em;
-        flex-wrap: wrap;
+        /* flex-wrap: wrap; */
     }
 
     .content .date_readings_section .actions div span {
@@ -37,75 +37,29 @@
     .content .date_readings_section .actions div select {
         padding: .5em;
         font-size: .8em;
+        width: fit-content;
     }
 
     .content .date_readings_section .actions div input {
-        border-bottom: 2px solid var(--accent);
+        border-bottom: 2px solid royalblue;
+        padding: .5em;
+        font-size: .8em;
+        width: fit-content;
     }
 
     .content .date_readings_section .actions div select {
-        border-bottom: 2px solid var(--accent);
-        background-color: var(--main);
-        color: var(--textCol);
+        border-bottom: 2px solid royalblue;
+        background-color: cornflowerblue;
+        color: #ffff;
         border-top-left-radius: .5em;
         border-top-right-radius: .5em;
     }
 
     .content .date_readings_section .actions div button {
-        background-color: var(--accent);
-        color: var(--textCol);
+        background-color: royalblue;
+        color: #ffff;
         border-radius: .5em;
     }
-
-    .content .date_readings_section .datereadings_section_loadtable {
-        overflow-y: scroll;
-        padding-right: .5em;
-        height: 50vh;
-    }
-
-    /* .content .date_readings_section .datereadings_section_loadtable::-webkit-scrollbar {
-    background-color: var(--accent);
-    width           : 15px;
-    border-radius   : .5em;
-}
-
-.content .date_readings_section .datereadings_section_loadtable::-webkit-scrollbar-thumb {
-    background-color   : var(--main);
-    border-radius      : .5em;
-} */
-
-    /* 
-.content .date_readings_section .datereadings_section_loadtable table {
-    border         : 2px solid var(--accent);
-    border-collapse: collapse;
-    width          : 100%;
-    font-size      : .8em;
-}
-
-.content .date_readings_section .datereadings_section_loadtable table thead {
-    position: sticky;
-    top     : 0;
-    left    : 0;
-    z-index : 1;
-    width   : 100%;
-}
-
-.content .date_readings_section .datereadings_section_loadtable table tr th {
-    background-color: var(--accent);
-    color           : var(--textCol);
-    padding         : .3em;
-}
-
-.content .date_readings_section .datereadings_section_loadtable table tr td {
-    padding: .5em;
-}
-
-.content .date_readings_section .datereadings_section_loadtable table tr th,
-.content .date_readings_section .datereadings_section_loadtable table tr td {
-    border: 1px solid var(--main);
-} */
-
-    /* ######################################################### */
 </style>
 
 <section class="date_readings_section">
@@ -150,8 +104,8 @@
         <div>
             <label for="">Display Type</label>
             <select name="" id="selectDisplayType">
-                <option value="Chart">Chart</option>
                 <option value="Table">Table</option>
+                <option value="Chart">Chart</option>
             </select>
         </div>
     </div>

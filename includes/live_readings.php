@@ -34,62 +34,12 @@
      }
 
      .content .livereadings_section .actions div select {
-         border-bottom: 2px solid var(--accent);
-         background-color: var(--main);
-         color: var(--textCol);
+         border-bottom: 2px solid royalblue;
+         background-color: cornflowerblue;
+         color: #fffe;
          border-top-left-radius: .5em;
          border-top-right-radius: .5em;
      }
-
-     .content .livereadings_section .livereadings_section_loadtable {
-         overflow-y: scroll;
-         padding-right: .5em;
-         height: 50vh;
-     }
-
-     /* .content .livereadings_section .livereadings_section_loadtable::-webkit-scrollbar {
-    background-color: var(--accent);
-    width           : 15px;
-    border-radius   : .5em;
-}
-
-.content .livereadings_section .livereadings_section_loadtable::-webkit-scrollbar-thumb {
-    background-color   : var(--main);
-    border-radius      : .5em;
-} */
-
-     /* 
-.content .livereadings_section .livereadings_section_loadtable table {
-    border         : 2px solid var(--accent);
-    border-collapse: collapse;
-    width          : 100%;
-    font-size      : .8em;
-}
-
-.content .livereadings_section .livereadings_section_loadtable table thead {
-    position: sticky;
-    top     : 0;
-    left    : 0;
-    z-index : 1;
-    width   : 100%;
-}
-
-.content .livereadings_section .livereadings_section_loadtable table tr th {
-    background-color: var(--accent);
-    color           : var(--textCol);
-    padding         : .3em;
-}
-
-.content .livereadings_section .livereadings_section_loadtable table tr td {
-    padding: .5em;
-}
-
-.content .livereadings_section .livereadings_section_loadtable table tr th,
-.content .livereadings_section .livereadings_section_loadtable table tr td {
-    border: 1px solid var(--main);
-} */
-
-     /* ################################## */
  </style>
  <section class="livereadings_section" id="livereadings_section">
      <h1>Live Readings for today</h1>
@@ -103,8 +53,8 @@
          <div>
              <label for="">Display Type</label>
              <select name="" id="selectDisplayTypeLive">
-                 <option value="Chart">Chart</option>
                  <option value="Table">Table</option>
+                 <option value="Chart">Chart</option>
              </select>
          </div>
      </div>

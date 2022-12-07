@@ -12,33 +12,23 @@
     <script src="assets/js/lib/chart.min.js"></script>
     <script src="assets/js/lib/sweetalert.min.js"></script>
     <!-- <link rel="stylesheet" href="assets/css/final.css"> -->
-    <link rel="stylesheet" href="assets/css/test.css">
+    <!-- <link rel="stylesheet" href="assets/css/test.css"> -->
+    <link rel="stylesheet" href="assets/css/index.css">
+    <link rel="stylesheet" href="assets/css/nav.css">
+    <link rel="stylesheet" href="assets/css/content.css">
     <title>SWLMS</title>
 </head>
 
 <body>
-    <!-- Hide Header in mobile view -->
-    <!-- <header>
-        <section class="title">
-            <h1>Smart Water Level Monitoring System</h1>
-            <img src="res/water-level.png" alt="">
-        </section>
-        <section class="nav">
-            <button onclick="showDateReadings()">View Date Readings</button>
-            <button onclick="showLiveReadings()">View Live Readings</button>
-            <button onclick="showDeviceList()">View Device List</button>
-            <button onclick="CopyURL()">Copy URL/Link</button>
-            <button onclick="userGuide()">USER GUIDE</button>
-        </section>
-    </header> -->
-    <header>
-        <a href="#" title="Smart Water Level Monitoring System" rel="noopener noreferrer">
+
+    <nav>
+        <a href="index.php" class="active" title="Smart Water Level Monitoring System" rel="noopener noreferrer">
             <i class="ri-contrast-drop-fill"></i>
             <span>SWLMS</span>
         </a>
         <ul class="navbar">
             <li>
-                <a href="?dateReadings" class="active" rel="noopener noreferrer">
+                <a href="?dateReadings" rel="noopener noreferrer">
                     <i class="ri-calendar-todo-fill"></i>
                     <span>Date Readings</span>
                 </a>
@@ -56,7 +46,7 @@
                 </a>
             </li>
             <li>
-                <a href="#" class="" onclick="CopyURL()" rel="noopener noreferrer">
+                <a href="#" class="" onclick="CopyURL()">
                     <i class="ri-links-fill"></i>
                     <span>Share Link</span>
                 </a>
@@ -67,13 +57,13 @@
                 <i class="ri-github-fill"></i>
                 <span>GitHub</span>
             </a>
-            <a href="https://scribehow.com/shared/Workflow__saa3U42xRC28hh9bLebDKg" target="_blank" rel="noopener noreferrer">
+            <a href="https://scribehow.com/shared/Smart_Water_Level_Monitoring_System__LRFb-KqsQuCokk1FdEuOBw" target="_blank" rel="noopener noreferrer">
                 <i class="ri-guide-fill"></i>
                 <span>Guide</span>
             </a>
-            <div class="sbx sbx-menu" id="menu-icon">lll</div>
+            <div class="bx bx-menu" id="menu-icon">lll</div>
         </div>
-    </header>
+    </nav>
     <div class="content">
         <?php
 
@@ -86,7 +76,6 @@
         } else {
             include_once("includes/date_readings.php");
         }
-
         include_once("includes/indicator_description.php");
         ?>
     </div>
@@ -94,23 +83,9 @@
         let menu = document.querySelector('#menu-icon');
         let navbar = document.querySelector('.navbar');
         menu.addEventListener('click', () => {
+            menu.classList.toggle('bx-x');
             navbar.classList.toggle('open');
         });
-        // function showDateReadings() {
-        //     window.location.href = '?dateReadings';
-        // }
-
-        // function showLiveReadings() {
-        //     window.location.href = '?liveReadings'
-        // }
-
-        // function showDeviceList() {
-        //     window.location.href = '?deviceList'
-        // }
-
-        // function userGuide() {
-        //     window.open("https://scribehow.com/shared/Workflow__saa3U42xRC28hh9bLebDKg", "");
-        // }
 
         function CopyURL() {
             var loc = window.location.href;

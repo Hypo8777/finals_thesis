@@ -21,13 +21,14 @@
     .devices_section .search_list input {
         padding: .5em;
         /* background-color: #6494ed85; */
-        border-bottom: 2px solid var(--accent);
+        border-bottom: 2px solid royalblue;
     }
 
     .devices_section .search_list button {
-        background-color: var(--accent);
-        color: var(--textCol);
+        background-color: royalblue;
+        color: white;
         border-radius: .5em;
+        padding: .5em;
     }
 
     .devices_section .list_table {
@@ -48,6 +49,7 @@
     <div class="search_list">
         <label for="">Search</label>
         <input type="text" name="" id="search_input" placeholder="Device, Location etc">
+        <label for="">Status</label>
         <button id="search_device">
             <i class="ri-search-line"></i>
             <span>Search</span>
@@ -61,6 +63,8 @@
                     <th>Device</th>
                     <th>Location</th>
                     <th>Date Added</th>
+                    <th>Status</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody class="load_list" id="load_list">
@@ -71,10 +75,10 @@
 </section>
 <script>
     $('#search_device').click(() => {
-        // console.log($('#search_input').val());
         $.ajax({
             type: "POST",
-            url: "php/view/devices.php?search",
+            // url: "php/view/devices.php?search",
+            url: "php/view/devices_test.php?search",
             data: {
                 searchInput: $('#search_input').val()
             },
@@ -86,7 +90,8 @@
     setTimeout(() => {
         $.ajax({
             type: "POST",
-            url: "php/view/devices.php?load_list",
+            // url: "php/view/devices.php?load_list",            
+            url: "php/view/devices_test.php?load_list",
             success: async function(response) {
                 $('#load_list').html(await response);
             }

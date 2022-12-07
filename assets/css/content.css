@@ -1,0 +1,165 @@
+.content {
+    min-height: 100vh;
+
+    padding        : 1em;
+    display        : flex;
+    flex-direction : column;
+    justify-content: space-between;
+    align-items    : stretch;
+}
+
+
+.content button {
+    display        : flex;
+    flex-direction : row;
+    justify-content: center;
+    align-items    : center;
+    gap            : .5em;
+}
+
+.content>section>div:has(canvas, table) {
+    border-radius   : 5px;
+    width           : 1000px;
+    overflow        : hidden;
+    /* box-shadow   : 0 0 5px 1px royalblue; */
+    padding         : 1em;
+}
+
+/* .content>section>div:has(canvas) {} */
+
+/* .content>section>div>canvas {} */
+
+.content>section>div:has(table) {
+    height         : 500px;
+    overflow-y     : scroll;
+    display        : flex;
+    flex-direction : column;
+    gap            : 5px;
+    justify-content: flex-start;
+    align-items    : center;
+}
+
+
+table {
+    width          : 100%;
+    border-collapse: collapse;
+}
+
+table thead {
+    background-color: cornflowerblue;
+    color           : white;
+    letter-spacing  : 1.3px;
+}
+
+table tr th,
+table tr td {
+    border: 2px solid cornflowerblue;
+}
+
+table tr th {
+    padding: .5em;
+}
+
+table tr td {
+    padding   : .3em;
+    text-align: center;
+}
+
+@media only screen and (max-width: 600px) {
+
+    .content>section>div:has(canvas, table) {
+        width: 90vw;
+    }
+
+    table {
+        width          : 100%;
+        border-collapse: collapse;
+        font-size      : x-small;
+    }
+
+    table thead {
+        background-color: cornflowerblue;
+        color           : white;
+        letter-spacing  : 1px;
+    }
+
+    table tr th,
+    table tr td {
+        border: 2px solid cornflowerblue;
+    }
+
+    table tr th {
+        padding: .3em;
+    }
+
+    table tr td {
+        padding   : .2em;
+        text-align: center;
+    }
+}
+
+
+@media only screen and (max-width: 768px) {
+    .content>section>div:has(canvas, table) {
+        width: 90vw;
+    }
+
+    table {
+        width          : 100%;
+        border-collapse: collapse;
+        font-size      : x-small;
+    }
+
+    table thead {
+        background-color: cornflowerblue;
+        color           : white;
+        letter-spacing  : 1px;
+    }
+
+    table tr th,
+    table tr td {
+        border: 2px solid cornflowerblue;
+    }
+
+    table tr th {
+        padding: .3em;
+    }
+
+    table tr td {
+        padding   : .2em;
+        text-align: center;
+    }
+}
+
+
+@media only screen and (max-width: 896px) {
+    .content>section>div:has(canvas, table) {
+        width: 90vw;
+    }
+
+    table {
+        width          : 100%;
+        border-collapse: collapse;
+        font-size      : x-small;
+    }
+
+    table thead {
+        background-color: cornflowerblue;
+        color           : white;
+        letter-spacing  : 1px;
+    }
+
+    table tr th,
+    table tr td {
+        border: 2px solid cornflowerblue;
+    }
+
+    table tr th {
+        padding: .3em;
+    }
+
+    table tr td {
+        padding   : .2em;
+        text-align: center;
+    }
+}

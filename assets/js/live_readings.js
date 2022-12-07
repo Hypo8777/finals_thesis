@@ -1,5 +1,5 @@
-$('#livereadings_section_loadchart').show();
-$('#livereadings_section_loadtable').hide();
+$('#livereadings_section_loadchart').hide();
+$('#livereadings_section_loadtable').show();
 
 $('#selectDisplayTypeLive').on('change', () => {
     if ($('#selectDisplayTypeLive').val() == "Chart") {
@@ -20,42 +20,47 @@ function loadLiveReadingsChart() {
         type: "GET",
         url: "php/view/readings.php?get_live_readings&device=" + request.device,
         success: async function (response) {
-            // Parse Fetched Data in to JSON format
+            // Parse Fetched Data in to JSON format            
             let dataResponse = JSON.parse(await response);
-            // CHART Data Variables
-            var sensor_data = dataResponse.sensor_data.split(",");
-            var time_entry = dataResponse.time_entry.split(",");
-            let data_array = {
-                x_data: sensor_data.reverse(),
-                y_data: time_entry.reverse(),
-            }
-            // Generate Chart
-            $('#livereadings_section_loadchart').html('<canvas id="live_chart_canvas"></canvas>');
-            let date_readings_chart = new Chart($('#live_chart_canvas'), {
-                type: 'line',
-                data: {
-                    labels: data_array.y_data,
-                    datasets:
-                        [{
-                            label: "Readings Chart",
-                            data: data_array.x_data,
-                            borderColor: "#0003",
-                            backgroundColor: function (context) {
-                                let value = context.dataset.data[context.dataIndex];
-                                if (value == 3) {
-                                    return "red";
-                                } else {
-                                    if (value == 2) {
-                                        return "yellow";
+            if (dataResponse.status !== 0) {
+                // CHART Data Variables
+                var sensor_data = dataResponse.sensor_data.split(",");
+                var time_entry = dataResponse.time_entry.split(",");
+                let data_array = {
+                    x_data: sensor_data.reverse(),
+                    y_data: time_entry.reverse(),
+                }
+                // Generate Chart
+                $('#livereadings_section_loadchart').html('<canvas id="live_chart_canvas"></canvas>');
+                let date_readings_chart = new Chart($('#live_chart_canvas'), {
+                    type: 'line',
+                    data: {
+                        labels: data_array.y_data,
+                        datasets:
+                            [{
+                                label: "Readings Chart",
+                                data: data_array.x_data,
+                                borderColor: "#0003",
+                                backgroundColor: function (context) {
+                                    let value = context.dataset.data[context.dataIndex];
+                                    if (value == 3) {
+                                        return "red";
                                     } else {
-                                        return "lime";
+                                        if (value == 2) {
+                                            return "yellow";
+                                        } else {
+                                            return "lime";
+                                        }
                                     }
                                 }
-                            }
-                        }]
-                },
-                options: opts
-            });
+                            }]
+                    },
+                    options: opts
+                });
+            } else {
+                $('#livereadings_section_loadchart').text(dataResponse.msg);
+                // $('#live_chart_canvas').text(dataResponse.msg);
+            }
         }
     });
 }
@@ -71,8 +76,7 @@ function loadLiveReadingsTable() {
         success: async function (response) {
             // Parse Fetched Data in to JSON format
             const datalist = await response;
-            // CHART Data Variables
-            // console.count(datalist);
+            // CHART Data Variables 
             $('#live_readings_table').html(datalist);
         }
     });
