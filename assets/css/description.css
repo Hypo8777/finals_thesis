@@ -1,0 +1,63 @@
+footer {
+    padding: 1em;
+}
+
+.indicators {
+    padding       : .5em;
+    border-radius : .5em;
+    display       : flex;
+    flex-direction: column;
+    gap           : .5em;
+}
+
+.indicators h3 {
+    color: royalblue;
+}
+
+.indicators details {
+    box-shadow   : 0px 0px 3px 0px #0006;
+    border-radius: .5em;
+    overflow     : hidden;
+}
+
+.indicators details summary {
+    cursor             : pointer;
+    padding            : .5em;
+    /* background-color: var(--accent); */
+    color              : #fffe;
+    text-shadow        : 1px 1px 3px black;
+    display            : flex;
+    justify-content    : stretch;
+    align-items        : baseline;
+    gap                : .5em;
+}
+
+.indicators details .normal {
+    background-color: lime;
+}
+
+.indicators details .normal~p {
+    background-color: #00ff006a;
+}
+
+
+.indicators details .mid {
+    background-color: gold;
+}
+
+.indicators details .mid~p {
+    background-color: #ffd9007c;
+}
+
+.indicators details .danger {
+    background-color: crimson;
+}
+
+.indicators details .danger~p {
+    background-color: #dc143c7d;
+
+}
+
+.indicators details p {
+    padding: .5em;
+}

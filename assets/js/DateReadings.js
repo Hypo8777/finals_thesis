@@ -21,7 +21,7 @@ function loadDateReadingsChart() {
     }
     $.ajax({
         type: "GET",
-        url: "php/view/readings.php?get_readings_bydate&date=" + request.date_readings_sel + "&device=" + request.device_reading_sel,
+        url: "php/view/ViewReadingsChart.php?get_readings_bydate&date=" + request.date_readings_sel + "&device=" + request.device_reading_sel,
         success: async function (response) {
             // Parse Fetched Data in to JSON format 
             let dataResponse = JSON.parse(await response);
@@ -71,7 +71,7 @@ function loadDateReadingsTable() {
     }
     $.ajax({
         type: "GET",
-        url: "php/view/readings_table.php?get_readings_bydate&date=" + request.date_readings_sel + "&device=" + request.device_reading_sel,
+        url: "php/view/ViewReadingsTable.php?get_readings_bydate&date=" + request.date_readings_sel + "&device=" + request.device_reading_sel,
         success: async function (response) {
             const datalist = await response;
             $('#date_readings_table').html(datalist);
@@ -88,7 +88,7 @@ function loadDateReadingsByTime_Chart() {
     }
     $.ajax({
         type: "GET",
-        url: "php/view/readings.php?get_readings_bytime&date=" + request.date_readings_sel + "&device=" + request.device_reading_sel + "&from=" + request.load_time_from + "&to=" + request.load_time_to,
+        url: "php/view/ViewReadingsChart.php?get_readings_bytime&date=" + request.date_readings_sel + "&device=" + request.device_reading_sel + "&from=" + request.load_time_from + "&to=" + request.load_time_to,
         success: async function (response) {
             // Parse Fetched Data in to JSON format
             let dataResponse = JSON.parse(await response);
@@ -139,7 +139,7 @@ function loadDateReadingsByTime_Table() {
     }
     $.ajax({
         type: "GET",
-        url: "php/view/readings_table.php?get_readings_bytime&date=" + request.date_readings_sel + "&device=" + request.device_reading_sel + "&from=" + request.load_time_from + "&to=" + request.load_time_to,
+        url: "php/view/ViewReadingsTable.php?get_readings_bytime&date=" + request.date_readings_sel + "&device=" + request.device_reading_sel + "&from=" + request.load_time_from + "&to=" + request.load_time_to,
         success: async function (response) {
             const datalist = await response;
             $('#date_readings_table').html(datalist);

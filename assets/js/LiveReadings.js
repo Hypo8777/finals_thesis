@@ -18,7 +18,7 @@ function loadLiveReadingsChart() {
     }
     $.ajax({
         type: "GET",
-        url: "php/view/readings.php?get_live_readings&device=" + request.device,
+        url: "php/view/ViewReadingsChart.php?get_live_readings&device=" + request.device,
         success: async function (response) {
             // Parse Fetched Data in to JSON format            
             let dataResponse = JSON.parse(await response);
@@ -72,7 +72,7 @@ function loadLiveReadingsTable() {
     }
     $.ajax({
         type: "GET",
-        url: "php/view/readings_table.php?get_live_readings&device=" + request.device,
+        url: "php/view/ViewReadingsTable.php?get_live_readings&device=" + request.device,
         success: async function (response) {
             // Parse Fetched Data in to JSON format
             const datalist = await response;

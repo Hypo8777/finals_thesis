@@ -49,8 +49,7 @@ nav .main {
 
 nav .main #menu-icon {
     display   : none;
-    cursor    : pointer;
-    /* rotate : 90deg; */
+    cursor    : pointer; 
 }
 
 

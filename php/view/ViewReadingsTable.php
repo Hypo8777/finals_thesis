@@ -12,16 +12,23 @@ class readings extends DBConn
         $conn = parent::set_connection();
         $query_readings_by_date = "SELECT * FROM readings_v WHERE device = '$device' AND date_entry = '$date' ORDER BY time_entry ASC";
         $_readings_by_date = $conn->query($query_readings_by_date);
-        $sensor_data = "";
-        $time_entry = "";
-        foreach ($_readings_by_date->fetchAll() as $rows) {
-            $sensor_data .= $rows->sensor_data . ",";
-            $time_entry .= $rows->time_entry . ",";
+        if ($_readings_by_date->rowCount() !== 0) {
+            foreach ($_readings_by_date->fetchAll() as $rows) {
+?>
+                <tr>
+                    <td><?php echo $rows->device; ?></td>
+                    <td><?php echo $rows->sensor_data; ?></td>
+                    <td><?php echo $rows->date_entry . " " . $rows->time_entry; ?></td>
+                </tr>
+            <?php
+            }
+        } else {
+            ?>
+            <tr>
+                <td colspan="3" style="text-align: center;">No Records found</td>
+            </tr>
+            <?php
         }
-        echo json_encode([
-            'sensor_data' => $sensor_data,
-            'time_entry' => $time_entry,
-        ]);
     }
     public function getReadingsByTime(
         $date,
@@ -30,54 +37,51 @@ class readings extends DBConn
         $to
     ) {
         $conn = parent::set_connection();
-        $query_readings_by_time = "SELECT * FROM readings_v WHERE device = '$device' AND date_entry = '$date' AND  time_entry BETWEEN TIME_FORMAT('$from','%r') AND TIME_FORMAT('$to','%r') ORDER BY time_entry ASC";
+        $query_readings_by_time = "SELECT * FROM readings_v WHERE device = '$device' AND date_entry = '$date' AND time_entry BETWEEN TIME_FORMAT('$from','%r') AND TIME_FORMAT('$to','%r') ORDER BY time_entry ASC";
         $_readings_by_time = $conn->query($query_readings_by_time);
         if ($_readings_by_time->rowCount() !== 0) {
-            $sensor_data = "";
-            $time_entry = "";
             foreach ($_readings_by_time->fetchAll() as $rows) {
-                $sensor_data .= $rows->sensor_data . ",";
-                $time_entry .= $rows->time_entry . ",";
+            ?>
+                <tr>
+                    <td><?php echo $rows->device; ?></td>
+                    <td><?php echo $rows->sensor_data; ?></td>
+                    <td><?php echo $rows->date_entry . " " . $rows->time_entry; ?></td>
+                </tr>
+            <?php
             }
-            echo json_encode([
-                'status' => 1,
-                'sensor_data' => $sensor_data,
-                'time_entry' => $time_entry
-            ]);
         } else {
-            echo json_encode([
-                'status' => 0,
-                'msg' => "No Records found, please specify when a reading occured (from) and where it ends (to)"
-            ]);
+            ?>
+            <tr>
+                <td colspan="3" style="text-align: center;">No Records found, please specify when a reading occured (from) and where it ends (to)</td>
+            </tr>
+            <?php
         }
     }
     public function getLiveReadings($date, $device)
     {
         $conn = parent::set_connection();
         $query_live_readings = "SELECT * FROM readings_live_v WHERE device = '$device' AND date_entry = '$date' AND is_active = '1' ORDER BY time_entry DESC LIMIT 20";
+        // $query_live_readings = "SELECT * FROM readings_live_v WHERE device = '$device' AND date_entry = '$date'  ORDER BY time_entry DESC LIMIT 20";
         $_live_readings = $conn->query($query_live_readings);
         if ($_live_readings->rowCount() !== 0) {
-            $sensor_data = "";
-            $time_entry = "";
             foreach ($_live_readings->fetchAll() as $rows) {
-                $sensor_data .= $rows->sensor_data . ",";
-                $time_entry .= $rows->time_entry . ",";
+            ?>
+                <tr>
+                    <td><?php echo $rows->device; ?></td>
+                    <td><?php echo $rows->sensor_data; ?></td>
+                    <td><?php echo $rows->date_entry . " " . $rows->time_entry; ?></td>
+                </tr>
+            <?php
             }
-            echo json_encode([
-                'status' => 1,
-                'sensor_data' => $sensor_data,
-                'time_entry' => $time_entry,
-            ]);
         } else {
-            echo json_encode([
-                'status' => 0,
-                'msg' => "No Records found for this device today, check if the device is functioning (Online or Offline)"
-            ]);
+            ?>
+            <tr>
+                <td colspan="3" style="text-align: center;">No Records found for this device today, check if the device is functioning (Online or Offline)</td>
+            </tr>
+<?php
         }
     }
 }
-
-
 
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
     $init = new readings;
@@ -104,5 +108,5 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         $init->getLiveReadings($date, $device);
     }
 } else {
-    echo "Invalid Request";
+    echo "No Valid Requests Made!";
 }

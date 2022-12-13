@@ -3,7 +3,7 @@
 function fetch_date() {
     $.ajax({
         type: "GET",
-        url: "php/view/fetch_data.php?get_date",
+        url: "php/view/ViewSelection.php?get_date",
         success: async (response) => {
             let data = JSON.parse(await response);
             $('#date_readings_sel').html(data.date);
@@ -17,7 +17,7 @@ function fetch_date() {
 function fetch_device() {
     $.ajax({
         type: "GET",
-        url: "php/view/fetch_data.php?get_device",
+        url: "php/view/ViewSelection.php?get_device",
         success: async function (response) {
             let data = JSON.parse(await response);
             $('#device_reading_sel').html(data.device);

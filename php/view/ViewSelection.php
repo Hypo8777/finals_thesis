@@ -58,5 +58,5 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         $init->get_devices();
     }
 } else {
-    echo "No Posts Made!";
+    echo "No Valid Requests Made!";
 }

@@ -9,8 +9,6 @@
         gap: 1em;
     }
 
-
-
     .devices_section .search_list {
         display: flex;
         justify-content: center;
@@ -20,7 +18,7 @@
 
     .devices_section .search_list input {
         padding: .5em;
-        /* background-color: #6494ed85; */
+        font-size: 12px;
         border-bottom: 2px solid royalblue;
     }
 
@@ -29,18 +27,21 @@
         color: white;
         border-radius: .5em;
         padding: .5em;
+        font-size: 12px;
     }
 
     .devices_section .list_table {
         overflow-y: scroll;
         padding-right: .5em;
-        height: 50vh;
+        height: 500px;
     }
 
     .devices_section .list_table table {
         border-collapse: collapse;
     }
 
+    /* @media only screen and (max-width: 768px) {} */
+    /* @media only screen and (max-width: 896px) {} */
 
     /* ########################################## */
 </style>
@@ -48,8 +49,7 @@
     <h1>Devices</h1>
     <div class="search_list">
         <label for="">Search</label>
-        <input type="text" name="" id="search_input" placeholder="Device, Location etc">
-        <label for="">Status</label>
+        <input type="search" name="" id="search_input" placeholder="Device, Location etc">
         <button id="search_device">
             <i class="ri-search-line"></i>
             <span>Search</span>
@@ -59,13 +59,42 @@
         <caption>List of Devices</caption>
         <table>
             <thead>
-                <tr>
-                    <th>Device</th>
-                    <th>Location</th>
-                    <th>Date Added</th>
-                    <th>Status</th>
-                    <th>Actions</th>
-                </tr>
+                <?php
+
+                if ($_SESSION['access'] == 1) {
+                ?>
+                    <tr>
+                        <th>Device</th>
+                        <th>Location</th>
+                        <th>Date Added</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                    <?php
+                } else {
+                    if ($_SESSION['access'] == 2) {
+                    ?>
+                        <tr>
+                            <th>Device</th>
+                            <th>Location</th>
+                            <th>Date Added</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    <?php
+                    } else {
+                    ?>
+                        <tr>
+                            <th>Device</th>
+                            <th>Location</th>
+                            <th>Date Added</th>
+                            <th>Status</th>
+                        </tr>
+                <?php
+                    }
+                }
+
+                ?>
             </thead>
             <tbody class="load_list" id="load_list">
                 <!-- Load Device Here -->
@@ -75,10 +104,10 @@
 </section>
 <script>
     $('#search_device').click(() => {
+        console.log($('#search_input').val());
         $.ajax({
             type: "POST",
-            // url: "php/view/devices.php?search",
-            url: "php/view/devices_test.php?search",
+            url: "php/view/ViewDevices.php?search",
             data: {
                 searchInput: $('#search_input').val()
             },
@@ -90,8 +119,7 @@
     setTimeout(() => {
         $.ajax({
             type: "POST",
-            // url: "php/view/devices.php?load_list",            
-            url: "php/view/devices_test.php?load_list",
+            url: "php/view/ViewDevices.php?load_list",
             success: async function(response) {
                 $('#load_list').html(await response);
             }

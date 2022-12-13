@@ -1,39 +1,6 @@
 .content {
-    min-height     : 100vh;
-    padding        : 1em;
-    display        : flex;
-    flex-direction : column;
-    justify-content: space-between;
-    align-items    : stretch;
+    min-height: 100vh;
 }
-
-
-.content button {
-    display        : flex;
-    flex-direction : row;
-    justify-content: center;
-    align-items    : center;
-    gap            : .5em;
-}
-
-.content>section>div:has(canvas, table) {
-    border-radius: 5px;
-    width        : 1000px;
-    overflow     : hidden;
-    padding      : 1em;
-}
-
-
-.content>section>div:has(table) {
-    height         : 500px;
-    overflow-y     : scroll;
-    display        : flex;
-    flex-direction : column;
-    gap            : 5px;
-    justify-content: flex-start;
-    align-items    : center;
-}
-
 
 table {
     width          : 100%;
@@ -62,7 +29,7 @@ table tr td {
 
 @media only screen and (max-width: 600px) {
 
-    .content>section>div:has(canvas, table) {
+    .content>section>div:has(table) {
         width: 90vw;
     }
 
@@ -95,7 +62,7 @@ table tr td {
 
 
 @media only screen and (max-width: 768px) {
-    .content>section>div:has(canvas, table) {
+    .content>section>div:has(table) {
         width: 90vw;
     }
 
@@ -128,7 +95,7 @@ table tr td {
 
 
 @media only screen and (max-width: 896px) {
-    .content>section>div:has(canvas, table) {
+    .content>section>div:has(table) {
         width: 90vw;
     }
 

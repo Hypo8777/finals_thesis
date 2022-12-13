@@ -128,5 +128,5 @@
         </table>
     </div>
 </section>
-<script src="assets/js/index.js"></script>
-<script src="assets/js/fetch_readings.js"></script>
+<script src="assets/js/App.js"></script>
+<script src="assets/js/DateReadings.js"></script>
